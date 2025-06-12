@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Aniversario</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, #fef6f9, #ffe9ec);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d6336c;
+      font-size: 2.5rem;
+      margin-top: 80px;
+      animation: aparecer 2s ease forwards;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .globo {
+      width: 40px;
+      height: 55px;
+      background: #ff4d6d;
+      border-radius: 50% 50% 45% 45%;
+      position: absolute;
+      animation: flotar 6s linear infinite;
+    }
+
+    .globo::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #555;
+      transform: translateX(-50%);
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-150px);
+        opacity: 0;
+      }
+    }
+
+    .flor {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      bottom: 30px;
+      animation: aparecer 2s ease forwards;
+    }
+
+    .petalo {
+      width: 20px;
+      height: 20px;
+      background: #f78da7;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .petalo:nth-child(1) { top: 0; left: 20px; }
+    .petalo:nth-child(2) { top: 20px; left: 0; }
+    .petalo:nth-child(3) { top: 20px; left: 40px; }
+    .petalo:nth-child(4) { top: 40px; left: 20px; }
+
+    .centro {
+      width: 20px;
+      height: 20px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz un mes más a tu lado ❤️</h1>
+
+  <!-- 6 Globos -->
+  <script>
+    for (let i = 0; i < 6; i++) {
+      const globo = document.createElement('div');
+      globo.classList.add('globo');
+      globo.style.left = `${10 + i * 15}%`;
+      globo.style.animationDelay = `${i * 0.5}s`;
+      globo.style.background = ['#ff4d6d', '#fca3cc', '#ff7f7f', '#ffc0cb', '#ff99b6', '#ff4d94'][i];
+      document.body.appendChild(globo);
+    }
+  </script>
+
+  <!-- 2 Flores -->
+  <div class="flor" style="left: 20%;">
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="centro"></div>
+  </div>
+
+  <div class="flor" style="right: 20%;">
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="petalo"></div>
+    <div class="centro"></div>
+  </div>
+</body>
+</html>
